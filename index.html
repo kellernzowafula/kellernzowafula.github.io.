@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kellernzo Wafula | Director, Upperhill College</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-dark: #172554;
+            --accent: #d97706;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --bg-light: #f8fafc;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--text-dark); background-color: #ffffff; line-height: 1.6; padding-top: 75px; }
+        
+        /* Navigation Styles */
+        header { background: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 2rem; }
+        .brand-block { display: flex; flex-direction: column; }
+        .logo-text { font-weight: bold; font-size: 1.3rem; color: var(--primary); line-height: 1.2; }
+        .logo-motto { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+        .nav-links a { text-decoration: none; color: var(--text-light); margin-left: 2rem; font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Compressed Hero Layout */
+        .hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero-container { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; letter-spacing: -0.5px; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; color: #e2e8f0; margin-bottom: 0px; font-weight: 400; }
+        .badge { background: rgba(255,255,255,0.1); padding: 0.4rem 1rem; border-radius: 50px; display: inline-block; font-size: 0.85rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.15); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Contact Bar */
+        .contact-bar { background-color: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 0.85rem 2rem; }
+        .contact-bar-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .contact-item { display: flex; align-items: center; gap: 0.5rem; color: var(--text-dark); font-weight: 500; text-decoration: none; font-size: 0.95rem; }
+        .contact-item i { color: var(--accent); }
+
+        /* Sections Layout */
+        section { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 1.8rem; color: var(--primary); margin-bottom: 2.5rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent); margin: 0.5rem auto 0 auto; border-radius: 2px; }
+
+        /* Balanced Biography Grid Layout */
+        .bio-intro { text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto; font-size: 1.1rem; color: var(--text-dark); }
+        .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+        .history-panel { background: #eff6ff; border-radius: 8px; padding: 1.75rem; border-left: 4px solid var(--primary); display: flex; flex-direction: column; justify-content: center; }
+        .history-panel h4 { color: var(--primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-size: 1.2rem; }
+        .history-panel p { font-size: 1rem; color: var(--text-light); text-align: justify; line-height: 1.6; margin-bottom: 0.75rem; }
+        .history-panel p:last-child { margin-bottom: 0; }
+        
+        .quote-box { background: var(--bg-light); border-left: 4px solid var(--accent); padding: 1.5rem; font-style: italic; font-size: 1.05rem; border-radius: 0 8px 8px 0; text-align: center; color: var(--primary-dark); font-weight: 500; max-width: 800px; margin: 0 auto; }
+
+        /* Core Values Symmetrical Cards */
+        .grid-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .card { background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); text-align: center; }
+        .card-icon { color: var(--accent); margin-bottom: 0.75rem; }
+        .card h3 { margin-bottom: 0.5rem; color: var(--primary); font-size: 1.25rem; }
+        .card p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* Regional Campuses Symmetrical Cards */
+        .campus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .campus-card { background: white; border-radius: 8px; border: 1px solid #e2e8f0; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); border-top: 4px solid var(--primary); text-align: center; }
+        .campus-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .campus-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Footer Infrastructure */
+        footer { background: var(--primary-dark); color: #94a3b8; text-align: center; padding: 3rem 2rem; border-top: 4px solid var(--accent); }
+        footer p { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .footer-brand { color: white; font-weight: bold; font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .footer-domain { color: var(--accent); font-size: 0.95rem; font-weight: 500; text-decoration: none; }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .grid-three { grid-template-columns: 1fr; }
+            .grid-two, .campus-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .contact-bar-container { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="brand-block">
+                <div class="logo-text">Kellernzo Wafula</div>
+                <div class="logo-motto">Leading Digital Revolution</div>
+            </div>
+            <nav class="nav-links">
+                <a href="#about">Biography</a>
+                <a href="#vision">Values</a>
+                <a href="#campuses">Campuses</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-container">
+            <span class="badge">Director's Official Profile</span>
+            <h1>Kellernzo Wafula</h1>
+            <p>Director & Founder, Upperhill College of Professional Studies</p>
+        </div>
+    </div>
+
+    <div class="contact-bar">
+        <div class="contact-bar-container">
+            <a href="tel:0745313604" class="contact-item">
+                <i data-lucide="phone"></i> 0745313604
+            </a>
+            <span class="contact-item">
+                <i data-lucide="graduation-cap"></i> Degree in ICT
+            </span>
+            <a href="https://kellenzowafula.co.ke" target="_blank" class="contact-item">
+                <i data-lucide="globe"></i> www.kellenzowafula.co.ke
+            </a>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">Executive Biography</h2>
+        <p class="bio-intro">Upperhill College of Professional Studies was established to systematically redefine technical professional training profiles. It was born out of a critical operational mission: to replace traditional, purely theoretical learning templates with robust, industry-driven Technical and Vocational Education Training (TVET).</p>
+        
+        <div class="grid-two">
+            <div class="history-panel">
+                <h4><i data-lucide="user" size="18"></i> Academic Background</h4>
+                <p>My passion for computing and academic equity shaped my personal path. I began my training foundation in technical education through a specialized diploma program, and subsequently advanced my skills in higher education. I'm holding a degree in <strong>Information Communication Technology (ICT)</strong>.</p>
+            </div>
+
+            <div class="history-panel">
+                <h4><i data-lucide="history" size="18"></i> Origin Story & Vision</h4>
+                <p>Founded on <strong>January 23, 2025</strong>, Upperhill College was built on an innovative framework: the <strong>Global Full Scholarship Program</strong>. Under this system, the scholarship covers a student's core tuition costs, leaving them responsible only for statutory fees. This framework has successfully empowered <strong>over 2,000 students nationwide</strong>, clearing paths to professional careers.</p>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            "True leadership isn't about setting rules; it's about engineering platforms where young talent discovers its capacity to innovate, create, and lead."
+        </div>
+    </section>
+
+    <section id="vision" style="background-color: var(--bg-light); max-width: 100%;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title">Core Values</h2>
+            <div class="grid-three">
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="shield" size="28"></i></div>
+                    <h3>Courage</h3>
+                    <p>Building bold professionals who confidently step into corporate management, entrepreneurial spaces, and engineering environments.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="heart" size="28"></i></div>
+                    <h3>Gratitude</h3>
+                    <p>Fostering an institutional culture grounded in collaboration, community support, mutual respect, and shared professional responsibility.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="lightbulb" size="28"></i></div>
+                    <h3>Creativity</h3>
+                    <p>Encouraging students to think outside established boxes, leverage modern ICT systems, and solve complex operational problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="campuses">
+        <h2 class="section-title">Regional Footprint</h2>
+        <div class="campus-grid">
+            <div class="campus-card">
+                <h3><i data-lucide="map-pin" size="20" style="color: var(--accent);"></i> Naivasha Campus</h3>
+                <p>Our foundational center delivering extensive training in computing, business management, and foundational professional skills.</p>
+            </div>
+
+            <div class="campus-card">
+                <h3><i data-lucide="landmark" size="20" style="color: var(--accent);"></i> Kitengela Branch</h3>
+                <p>Our rapid expansion facility targeting growing corporate corridors and providing local youth with direct access to accredited TVET models.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">Kellernzo Wafula</div>
+        <p>Director, Upperhill College of Professional Studies</p>
+        <p><a href="tel:0745313604" style="color: white; text-decoration: none; font-weight: 500;">Phone: 0745313604</a></p>
+        <p><a href="https://kellenzowafula.co.ke" class="footer-domain">www.kellenzowafula.co.ke</a></p>
+        <p>&copy; 2026. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
